@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Formatter</title>
+    <style>
+        .toolbar{
+            margin-bottom: 10px;
+        }
+        .toolbar button{
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        #editor{
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 150px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><b>Bold</b></button>
+        <button onclick="formatText('italic')"><i>Italic</i></button>
+        <button onclick="formatText('underline')"><u>Underline</u></button>
+    </div>
+    <div id="editor" contenteditable="true">
+        Type your text here and use the buttons above to format it.
+    </div>
+
+    <script>
+        function formatText(command) {
+            document.execCommand(command, false, null);
+        }
+    </script>
+</body>
+</html>

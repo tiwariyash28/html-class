@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Stats Viewer</title>
+    <style>
+        .player{
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .stats{
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: fit-content;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h2>Team Roaster</h2>
+    <ul>
+        <li><span class="player" data-player="player1">John Doe</span></li>
+        <li><span class="player" data-player="player2">Jane Smith</span></li>
+        <li><span class="player" data-player="player3">Alex Johnson</span></li>
+    </ul>
+
+    <div id="player1" class="stats">
+        <strong>John Doe Stats:</strong>
+        points:22<br>
+        assists:7<br>
+        Rebounds:9<br>
+    </div>
+
+    <div id="player2" class="stats">
+        <strong>Jane Smith Stats:</strong>
+        points:18<br>
+        assists:12<br>
+        Rebounds:5<br>
+    </div>
+
+    <div id="player3" class="stats">
+        <strong>Alex Johnson Stats:</strong>
+        points:10<br>
+        assists:4<br>
+        Rebounds:11<br>
+    </div>
+
+    <script>
+        const players = document.querySelectorAll('.player');
+
+        players.forEach(player => {
+            player.addEventListener('click', () => {
+            document.querySelectorAll('.stats').forEach(stat => {
+        stat.style.display = 'none';
+            });
+            
+            const playerId = player.getAttribute('data-player');
+            const statsDiv = document.getElementById(playerId);
+            statsDiv.style.display = 'block';
+            });
+        });
+     </script>
+</body>
+</html>
